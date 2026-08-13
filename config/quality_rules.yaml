@@ -1,18 +1,31 @@
 required_columns:
-  - id
-  - value
+  - patient_id
+  - admission_date
+  - department
+  - heart_rate_bpm
+  - systolic_bp
+  - length_of_stay_days
+  - cost_brl
 
 null_threshold: 0.2
 duplicate_ratio_threshold: 0.0
 
 expected_types:
-  id: int
-  value: float
-  category: string
+  patient_id: int
+  admission_date: string
+  department: string
+  heart_rate_bpm: float
+  systolic_bp: float
+  length_of_stay_days: float
+  cost_brl: float
+  risk_class: string
 
 outlier_detection:
   method: iqr
   max_outlier_ratio: 0.05
   zscore_threshold: 3.0
   columns:
-    - value
+    - heart_rate_bpm
+    - systolic_bp
+    - length_of_stay_days
+    - cost_brl

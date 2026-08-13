@@ -1,10 +1,11 @@
-data,categoria,valor
-2024-01-01,vendas,100
-2024-01-02,vendas,105
-2024-01-03,vendas,98
-2024-01-04,vendas,
-2024-01-05,vendas,102
-2024-01-06,vendas,99
-2024-01-07,vendas,5000
-2024-01-07,vendas,5000
-2024-01-08,vendas,101
+patient_id,admission_date,department,heart_rate_bpm,systolic_bp,length_of_stay_days,cost_brl,risk_class
+2001,2026-06-10,Clinica Medica,76,120,3,1780.00,baixo
+2002,2026-06-11,Cardiologia,95,145,6,5120.50,medio
+2003,2026-06-11,Pediatria,85,116,1,920.00,baixo
+2004,2026-06-12,UTI,128,162,10,16320.75,alto
+2005,2026-06-13,Ortopedia,82,128,4,2450.10,medio
+2006,2026-06-14,Clinica Medica,,134,5,2980.00,medio
+2007,2026-06-15,Neurologia,101,149,7,6310.25,alto
+2008,2026-06-16,Cardiologia,98,151,7,6310.25,alto
+2008,2026-06-16,Cardiologia,98,151,7,6310.25,alto
+2009,2026-06-17,UTI,172,198,16,31250.00,alto

@@ -1,11 +1,11 @@
-﻿id,value,category
-1,10.5,A
-2,11.2,A
-3,10.9,B
-4,12.1,B
-5,300.0,C
-6,11.0,A
-7,,B
-8,10.8,C
-9,11.4,A
-10,10.7,B
+﻿patient_id,admission_date,department,heart_rate_bpm,systolic_bp,length_of_stay_days,cost_brl,risk_class
+1001,2026-07-01,Clinica Medica,78,122,3,1850.50,baixo
+1002,2026-07-01,Cardiologia,92,138,5,4250.90,medio
+1003,2026-07-02,Ortopedia,81,126,2,1620.00,baixo
+1004,2026-07-02,UTI,120,155,9,14890.30,alto
+1005,2026-07-03,Pediatria,88,118,1,980.00,baixo
+1006,2026-07-03,Clinica Medica,84,130,4,2310.40,medio
+1007,2026-07-04,Neurologia,,142,6,5360.10,alto
+1008,2026-07-04,Cardiologia,96,147,5,4890.00,medio
+1009,2026-07-05,UTI,160,185,14,26800.00,alto
+1010,2026-07-05,Ortopedia,79,124,2,1715.80,baixo

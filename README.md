@@ -2,6 +2,8 @@
 
 Pipeline automatizado de qualidade, analise e monitoramento de dados para operacoes criticas.
 
+Cenario atual de demonstracao: operacao hospitalar (ramo de saude), com indicadores clinicos e custo por internacao.
+
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](#instalacao-local)
 [![Streamlit](https://img.shields.io/badge/streamlit-dashboard-FF4B4B?logo=streamlit&logoColor=white)](#execucao-direta-1-minuto)
 [![Plotly](https://img.shields.io/badge/plotly-interactive%20analytics-3F4F75?logo=plotly&logoColor=white)](#exemplos-de-output)
@@ -54,6 +56,17 @@ O DataSentinel executa um fluxo completo de confiabilidade de dados:
 - geracao de relatorios executivos em Excel e HTML
 - notificacoes via Slack e email
 - agendamento automatico com APScheduler
+
+## Cenario de Negocio (Saude)
+
+Os arquivos de exemplo foram modelados para um fluxo hospitalar, com colunas como:
+
+- patient_id e admission_date para identificacao temporal do atendimento
+- department e risk_class para contexto assistencial
+- heart_rate_bpm e systolic_bp para sinais clinicos
+- length_of_stay_days e cost_brl para eficiencia operacional e financeira
+
+Esse cenario permite identificar nulos criticos, duplicidade de registros e outliers clinicos/financeiros em internacoes.
 
 ## Destaques do Produto
 
