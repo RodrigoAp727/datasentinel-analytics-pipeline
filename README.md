@@ -20,7 +20,7 @@ Cenario atual de demonstracao: operacao hospitalar (ramo de saude), com indicado
 	<img src="assets/images/github-chart-tendencia-id.png" alt="Grafico de tendencia executiva" width="920" />
 </p>
 
-Leitura: mostra evolucao da metrica ao longo dos registros e a media movel para leitura de padrao.
+Leitura: mostra a evolucao do custo hospitalar (cost_brl) por atendimento, com media movel para leitura de tendencia.
 
 #### 2) Distribuicao da metrica
 
@@ -28,7 +28,7 @@ Leitura: mostra evolucao da metrica ao longo dos registros e a media movel para 
 	<img src="assets/images/github-chart-distribuicao-id.png" alt="Grafico de distribuicao da metrica" width="920" />
 </p>
 
-Leitura: evidencia frequencia, dispersao e possiveis concentracoes de valores.
+Leitura: evidencia frequencia, dispersao e concentracao dos custos hospitalares da base.
 
 #### 3) Severidade das anomalias
 
@@ -36,7 +36,7 @@ Leitura: evidencia frequencia, dispersao e possiveis concentracoes de valores.
 	<img src="assets/images/github-chart-anomalias-severidade.png" alt="Grafico de severidade das anomalias" width="920" />
 </p>
 
-Leitura: prioriza riscos por nivel de impacto (baixa, media e alta).
+Leitura: prioriza riscos assistenciais por nivel de impacto (baixo, medio e alto).
 
 #### 4) Criticidade de nulos por coluna
 
@@ -44,7 +44,7 @@ Leitura: prioriza riscos por nivel de impacto (baixa, media e alta).
 	<img src="assets/images/github-chart-nulos-criticidade.png" alt="Grafico de criticidade de nulos por coluna" width="920" />
 </p>
 
-Leitura: identifica rapidamente colunas com maior impacto de dados faltantes.
+Leitura: identifica rapidamente campos clinicos e operacionais com maior impacto de dados faltantes.
 
 ## Visao Geral
 
