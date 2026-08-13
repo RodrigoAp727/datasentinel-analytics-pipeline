@@ -10,13 +10,17 @@ Pipeline automatizado de qualidade, analise e monitoramento de dados para operac
 
 ## Preview Visual
 
-### Dashboard completo
-
-![Dashboard completo do DataSentinel](assets/images/dashboard-overview.png)
-
 ### Area de graficos interativos
 
-![Graficos interativos do DataSentinel](assets/images/dashboard-charts.png)
+<p align="center">
+	<img src="assets/images/dashboard-charts.png" alt="Graficos interativos do DataSentinel" width="760" />
+</p>
+
+### Visao geral do dashboard
+
+<p align="center">
+	<img src="assets/images/dashboard-overview.png" alt="Dashboard completo do DataSentinel" width="760" />
+</p>
 
 ## Visao Geral
 
