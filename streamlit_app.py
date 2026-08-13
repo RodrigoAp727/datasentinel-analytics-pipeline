@@ -262,6 +262,20 @@ def _apply_bi_chart_style(
     return figure
 
 
+def _render_chart_section(
+    *,
+    title: str,
+    figure: go.Figure,
+    key: str,
+    caption: str | None = None,
+) -> None:
+    st.markdown(f"#### {title}")
+    if caption:
+        st.caption(caption)
+    figure.update_layout(height=460)
+    st.plotly_chart(figure, width="stretch", config=_plotly_config(), key=key)
+
+
 def _quality_score_gauge(score: float) -> go.Figure:
     gauge = go.Figure(
         go.Indicator(
@@ -939,147 +953,95 @@ def _render_pipeline_results(payload: dict[str, Any]) -> None:
         yaxis_title="Registros",
     )
 
-    st.markdown("### Graficos Principais")
-    overview_col1, overview_col2 = st.columns(2)
-    with overview_col1:
-        if trend_fig is not None:
-            st.plotly_chart(
-                trend_fig,
-                width="stretch",
-                config=_plotly_config(),
-                key="overview_trend_chart",
-            )
-        else:
-            st.info("Escolha uma metrica numerica para visualizar a tendencia executiva.")
-        st.plotly_chart(
-            null_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="overview_null_chart",
-        )
-
-    with overview_col2:
-        st.plotly_chart(
-            severity_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="overview_severity_chart",
-        )
-        st.plotly_chart(
-            anomaly_column_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="overview_anomaly_column_chart",
-        )
-
-    st.caption(
-        "Todos os graficos abaixo ficam visiveis na mesma tela para leitura executiva, "
-        "sem precisar alternar abas."
+    st.markdown("### Qualidade da Base")
+    _render_chart_section(
+        title="Score de qualidade",
+        figure=_quality_score_gauge(quality_report.score),
+        key="quality_gauge_chart",
+        caption="Visao sintetica da saude geral da base no intervalo de 0 a 100.",
     )
+    _render_chart_section(
+        title="Mapa de criticidade de nulos",
+        figure=null_fig,
+        key="quality_null_chart",
+        caption="Percentual de dados faltantes por coluna para priorizacao de correcao.",
+    )
+    _render_chart_section(
+        title="Heatmap de completude",
+        figure=completeness_fig,
+        key="quality_completeness_chart",
+        caption="Cada celula representa um registro e coluna; facilita localizar blocos de falha.",
+    )
+    if corr_fig is not None:
+        _render_chart_section(
+            title="Correlacao entre metricas numericas",
+            figure=corr_fig,
+            key="quality_correlation_chart",
+            caption="Relacionamentos fortes podem indicar redundancia ou variaveis explicativas.",
+        )
+
+    st.markdown("### Risco e Anomalias")
+    _render_chart_section(
+        title="Distribuicao de anomalias por severidade",
+        figure=severity_fig,
+        key="risk_severity_chart",
+        caption="Mostra o volume de eventos de baixa, media e alta severidade.",
+    )
+    _render_chart_section(
+        title="Concentracao de anomalias por coluna",
+        figure=anomaly_column_fig,
+        key="risk_anomaly_column_chart",
+        caption="Aponta colunas com maior recorrencia para foco de investigacao.",
+    )
+    if scatter_fig is not None:
+        _render_chart_section(
+            title="Mapa de anomalias por registro",
+            figure=scatter_fig,
+            key="risk_scatter_chart",
+            caption="Cruza indice e valor para destacar pontos extremos e impactos.",
+        )
+    else:
+        st.info("Nenhuma anomalia ficou visivel com o filtro atual de severidade.")
 
     st.markdown("### Tendencia e Distribuicao")
     if selected_column is None:
         st.info("Nao ha colunas numericas disponiveis para construir a visao analitica.")
     else:
-        trend_col, dist_col = st.columns(2)
-        with trend_col:
-            if trend_fig is not None:
-                st.plotly_chart(
-                    trend_fig,
-                    width="stretch",
-                    config=_plotly_config(),
-                    key="detail_trend_chart",
-                )
-        with dist_col:
-            if dist_fig is not None:
-                st.plotly_chart(
-                    dist_fig,
-                    width="stretch",
-                    config=_plotly_config(),
-                    key="detail_distribution_chart",
-                )
+        if trend_fig is not None:
+            _render_chart_section(
+                title=f"Tendencia executiva de {selected_column}",
+                figure=trend_fig,
+                key="detail_trend_chart",
+                caption="Serie temporal por indice com media movel para leitura de padrao.",
+            )
+        if dist_fig is not None:
+            _render_chart_section(
+                title=f"Distribuicao de {selected_column}",
+                figure=dist_fig,
+                key="detail_distribution_chart",
+                caption="Histograma com boxplot para visualizar assimetria e dispersao.",
+            )
 
         if category_focus_column is not None:
-            segment_top_col, segment_dist_col = st.columns(2)
-            with segment_top_col:
-                if segment_fig is not None:
-                    st.plotly_chart(
-                        segment_fig,
-                        width="stretch",
-                        config=_plotly_config(),
-                        key="detail_segment_chart",
-                    )
-            with segment_dist_col:
-                if distribution_fig is not None:
-                    st.plotly_chart(
-                        distribution_fig,
-                        width="stretch",
-                        config=_plotly_config(),
-                        key="detail_segment_distribution_chart",
-                    )
+            if segment_fig is not None:
+                _render_chart_section(
+                    title=f"Benchmark por segmento: {category_focus_column}",
+                    figure=segment_fig,
+                    key="detail_segment_chart",
+                    caption="Compara media e mediana da metrica entre grupos categoricos.",
+                )
+            if distribution_fig is not None:
+                _render_chart_section(
+                    title=f"Dispersao por segmento: {category_focus_column}",
+                    figure=distribution_fig,
+                    key="detail_segment_distribution_chart",
+                    caption="Mostra variabilidade e outliers por grupo para diagnostico fino.",
+                )
         else:
             st.info(
                 "Selecione uma segmentacao categorica para exibir "
                 "o benchmark e a dispersao por grupo."
             )
-
-    st.markdown("### Qualidade da Base")
-    quality_col, null_col = st.columns([1, 2])
-    with quality_col:
-        st.plotly_chart(
-            _quality_score_gauge(quality_report.score),
-            width="stretch",
-            config=_plotly_config(),
-            key="quality_gauge_chart",
-        )
-    with null_col:
-        st.plotly_chart(
-            null_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="quality_null_chart",
-        )
-
-    if corr_fig is not None:
-        st.plotly_chart(
-            corr_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="quality_correlation_chart",
-        )
-    st.plotly_chart(
-        completeness_fig,
-        width="stretch",
-        config=_plotly_config(),
-        key="quality_completeness_chart",
-    )
-
-    st.markdown("### Risco e Anomalias")
-    anomaly_top_col, anomaly_mid_col = st.columns(2)
-    with anomaly_top_col:
-        st.plotly_chart(
-            severity_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="risk_severity_chart",
-        )
-    with anomaly_mid_col:
-        st.plotly_chart(
-            anomaly_column_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="risk_anomaly_column_chart",
-        )
-
-    if scatter_fig is not None:
-        st.plotly_chart(
-            scatter_fig,
-            width="stretch",
-            config=_plotly_config(),
-            key="risk_scatter_chart",
-        )
-    else:
-        st.info("Nenhuma anomalia ficou visivel com o filtro atual de severidade.")
 
     st.subheader("Detalhamento")
     st.markdown("**Problemas de qualidade**")

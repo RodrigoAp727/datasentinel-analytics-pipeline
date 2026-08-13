@@ -10,17 +10,47 @@ Pipeline automatizado de qualidade, analise e monitoramento de dados para operac
 
 ## Preview Visual
 
-### Area de graficos interativos
+### Galeria Profissional de Graficos (separados)
+
+#### 1) Score de qualidade
 
 <p align="center">
-	<img src="assets/images/dashboard-charts.png" alt="Graficos interativos do DataSentinel" width="760" />
+	<img src="assets/images/github-chart-score-qualidade.png" alt="Grafico de score de qualidade" width="920" />
 </p>
 
-### Visao geral do dashboard
+Leitura: resume a saude geral da base em uma escala executiva de 0 a 100 pontos.
+
+#### 2) Tendencia executiva
 
 <p align="center">
-	<img src="assets/images/dashboard-overview.png" alt="Dashboard completo do DataSentinel" width="760" />
+	<img src="assets/images/github-chart-tendencia-id.png" alt="Grafico de tendencia executiva" width="920" />
 </p>
+
+Leitura: mostra evolucao da metrica ao longo dos registros e a media movel para leitura de padrao.
+
+#### 3) Distribuicao da metrica
+
+<p align="center">
+	<img src="assets/images/github-chart-distribuicao-id.png" alt="Grafico de distribuicao da metrica" width="920" />
+</p>
+
+Leitura: evidencia frequencia, dispersao e possiveis concentracoes de valores.
+
+#### 4) Severidade das anomalias
+
+<p align="center">
+	<img src="assets/images/github-chart-anomalias-severidade.png" alt="Grafico de severidade das anomalias" width="920" />
+</p>
+
+Leitura: prioriza riscos por nivel de impacto (baixa, media e alta).
+
+#### 5) Criticidade de nulos por coluna
+
+<p align="center">
+	<img src="assets/images/github-chart-nulos-criticidade.png" alt="Grafico de criticidade de nulos por coluna" width="920" />
+</p>
+
+Leitura: identifica rapidamente colunas com maior impacto de dados faltantes.
 
 ## Visao Geral
 
