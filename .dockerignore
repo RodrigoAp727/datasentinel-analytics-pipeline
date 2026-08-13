@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Git and editor
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Local runtime artifacts
+logs/
+reports/
+htmlcov/
+.coverage
+
+# Env files
+.env
+.env.*
+!.env.example

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datasentinel"
+version = "0.1.0"
+description = "Automated data quality and analysis pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "numpy",
+    "PyYAML",
+    "great-expectations",
+    "plotly",
+    "streamlit",
+    "matplotlib",
+    "openpyxl",
+    "requests",
+    "python-dotenv",
+    "pytest",
+    "pytest-cov",
+    "loguru",
+    "apscheduler",
+    "pydantic-settings",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=src --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

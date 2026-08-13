@@ -1,0 +1,13 @@
+services:
+  datasentinel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: datasentinel
+    command: ["python", "main.py", "--once", "--csv-path", "/app/dados_teste.csv"]
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    restart: "no"
