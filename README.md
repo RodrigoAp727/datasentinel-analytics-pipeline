@@ -12,15 +12,7 @@ Pipeline automatizado de qualidade, analise e monitoramento de dados para operac
 
 ### Galeria Profissional de Graficos (separados)
 
-#### 1) Score de qualidade
-
-<p align="center">
-	<img src="assets/images/github-chart-score-qualidade.png" alt="Grafico de score de qualidade" width="920" />
-</p>
-
-Leitura: resume a saude geral da base em uma escala executiva de 0 a 100 pontos.
-
-#### 2) Tendencia executiva
+#### 1) Tendencia executiva
 
 <p align="center">
 	<img src="assets/images/github-chart-tendencia-id.png" alt="Grafico de tendencia executiva" width="920" />
@@ -28,7 +20,7 @@ Leitura: resume a saude geral da base em uma escala executiva de 0 a 100 pontos.
 
 Leitura: mostra evolucao da metrica ao longo dos registros e a media movel para leitura de padrao.
 
-#### 3) Distribuicao da metrica
+#### 2) Distribuicao da metrica
 
 <p align="center">
 	<img src="assets/images/github-chart-distribuicao-id.png" alt="Grafico de distribuicao da metrica" width="920" />
@@ -36,7 +28,7 @@ Leitura: mostra evolucao da metrica ao longo dos registros e a media movel para 
 
 Leitura: evidencia frequencia, dispersao e possiveis concentracoes de valores.
 
-#### 4) Severidade das anomalias
+#### 3) Severidade das anomalias
 
 <p align="center">
 	<img src="assets/images/github-chart-anomalias-severidade.png" alt="Grafico de severidade das anomalias" width="920" />
@@ -44,7 +36,7 @@ Leitura: evidencia frequencia, dispersao e possiveis concentracoes de valores.
 
 Leitura: prioriza riscos por nivel de impacto (baixa, media e alta).
 
-#### 5) Criticidade de nulos por coluna
+#### 4) Criticidade de nulos por coluna
 
 <p align="center">
 	<img src="assets/images/github-chart-nulos-criticidade.png" alt="Grafico de criticidade de nulos por coluna" width="920" />
