@@ -8,6 +8,16 @@ Pipeline automatizado de qualidade, analise e monitoramento de dados para operac
 [![CI](https://img.shields.io/badge/ci-ready-brightgreen)](.github/workflows/ci.yml)
 [![Licenca MIT](https://img.shields.io/badge/licenca-MIT-blue.svg)](LICENSE)
 
+## Preview Visual
+
+### Dashboard completo
+
+![Dashboard completo do DataSentinel](assets/images/dashboard-overview.png)
+
+### Area de graficos interativos
+
+![Graficos interativos do DataSentinel](assets/images/dashboard-charts.png)
+
 ## Visao Geral
 
 O DataSentinel executa um fluxo completo de confiabilidade de dados:
